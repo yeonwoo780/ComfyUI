@@ -1,9 +1,57 @@
 [project]
 name = "ComfyUI"
-version = "0.3.76"
+version = "0.3.75"
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.9"
+
+dependencies = [
+    "comfyui-frontend-package==1.32.9",
+    "comfyui-workflow-templates==0.7.20",
+    "comfyui-embedded-docs==0.3.1",
+    "torchsde",
+    "numpy>=1.25.0",
+    "einops",
+    "transformers>=4.50.3",
+    "tokenizers>=0.13.3",
+    "sentencepiece",
+    "safetensors>=0.4.2",
+    "aiohttp>=3.11.8",
+    "yarl>=1.18.0",
+    "pyyaml",
+    "Pillow",
+    "scipy",
+    "tqdm",
+    "psutil",
+    "alembic",
+    "SQLAlchemy",
+    "av>=14.2.0",
+    "kornia>=0.7.1",
+    "spandrel",
+    "pydantic~=2.0",
+    "pydantic-settings~=2.0",
+]
+
+[project.optional-dependencies]
+cpu = [
+  "torch",
+  "torchvision",
+  "torchaudio"
+]
+
+cu130 = [
+  "torch",
+  "torchvision",
+  "torchaudio"
+]
+
+[tool.uv]
+conflicts = [
+  [
+    { extra = "cpu" },
+    { extra = "cu130" },
+  ],
+]
 
 [project.urls]
 homepage = "https://www.comfy.org/"
@@ -22,6 +70,30 @@ lint.select = [
   "F",
 ]
 exclude = ["*.ipynb", "**/generated/*.pyi"]
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu130", extra = "cu130"},
+  { index = "pytorch-cpu", extra = "cpu" },
+]
+torchvision = [
+    { index = "pytorch-cu130", extra = "cu130" },
+    { index = "pytorch-cpu", extra = "cpu" },
+]
+torchaudio = [
+  { index = "pytorch-cu130", extra = "cu130" },
+  { index = "pytorch-cpu", extra = "cpu" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
 
 [tool.pylint]
 master.py-version = "3.10"
@@ -69,3 +141,4 @@ messages_control.disable = [
   "no-else-return",
   "unused-variable",
 ]
+

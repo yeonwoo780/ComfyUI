@@ -38,6 +38,12 @@ ComfyUI lets you design and execute advanced stable diffusion pipelines using a 
 
 ## Get Started
 
+#### GB10
+
+   ```bash
+   uv sync --extra cu130
+   ```
+
 #### [Desktop Application](https://www.comfy.org/download)
 - The easiest way to get started.
 - Available on Windows & macOS.
