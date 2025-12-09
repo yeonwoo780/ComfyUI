@@ -30,6 +30,7 @@ dependencies = [
     "spandrel",
     "pydantic~=2.0",
     "pydantic-settings~=2.0",
+    "python-dotenv>=1.2.1",
 ]
 
 [project.optional-dependencies]
