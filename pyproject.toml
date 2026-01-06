@@ -40,6 +40,12 @@ cpu = [
   "torchaudio"
 ]
 
+cu126 = [
+  "torch",
+  "torchvision",
+  "torchaudio"
+]
+
 cu130 = [
   "torch",
   "torchvision",
@@ -51,6 +57,7 @@ conflicts = [
   [
     { extra = "cpu" },
     { extra = "cu130" },
+    { extra = "cu126" },
   ],
 ]
 
@@ -75,20 +82,28 @@ exclude = ["*.ipynb", "**/generated/*.pyi"]
 [tool.uv.sources]
 torch = [
   { index = "pytorch-cu130", extra = "cu130"},
+  { index = "pytorch-cu126", extra = "cu126"},
   { index = "pytorch-cpu", extra = "cpu" },
 ]
 torchvision = [
     { index = "pytorch-cu130", extra = "cu130" },
+    { index = "pytorch-cu126", extra = "cu126" },
     { index = "pytorch-cpu", extra = "cpu" },
 ]
 torchaudio = [
   { index = "pytorch-cu130", extra = "cu130" },
+  { index = "pytorch-cu126", extra = "cu126" },
   { index = "pytorch-cpu", extra = "cpu" },
 ]
 
 [[tool.uv.index]]
 name = "pytorch-cu130"
 url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
 explicit = true
 
 [[tool.uv.index]]
