@@ -46,7 +46,6 @@ SCRIPTS=(
   "qwen_2.5_vl_7b.sh"
   "qwen_image_edit_2509_bf16.sh"
   "qwen_image_lightning.sh"
-  "Qwen-Image-MathAI-Korean-Drawing-v02.sh"
   "qwen_image_bf16.sh"
   "qwen_image_edit_2509_lightning.sh"
   "qwen_image_vae.sh"
